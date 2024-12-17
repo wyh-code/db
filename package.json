@@ -1,0 +1,57 @@
+{
+  "name": "@ostore/db",
+  "version": "1.0.0",
+  "description": "基于fs模块的本地数据库",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "jsnext:main": "lib/index.esm.js",
+  "browser": false,
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "node",
+    "fs",
+    "db",
+    "mongodb",
+    "local",
+    "本地数据库"
+  ],
+  "author": "wyh-code <578311720@qq.com>",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@types/node": "^22.10.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.6.2"
+  },
+  "dependencies": {
+    "@koa/router": "^13.1.0",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyh-code/db.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyh-code/db/issues"
+  },
+  "homepage": "https://github.com/wyh-code/db#readme"
+}
