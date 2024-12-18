@@ -1,7 +1,12 @@
-/// <reference types="./index.d.ts" />，
-
 import FileHander from './fileHandler';
-
+import { 
+  IFileHanderProps,
+  IDataProps,
+  IFindOptionsProps,
+  ICopyFileProps,
+  IFindResultProps,
+  ITempProps
+} from './type';
 class DB extends FileHander {
   _id: number;
 
@@ -14,8 +19,15 @@ class DB extends FileHander {
     return this._writeDatabase(data);
   }
 
-  find:(query: IDataProps, options?: IFindOptionsProps) => Promise<ICopyFileProps|IFindResultProps> = async (query: IDataProps, options: IFindOptionsProps={}) => {
+  find:(params: IDataProps, options?: IFindOptionsProps) => Promise<ICopyFileProps|IFindResultProps> = async (params: IDataProps, options: IFindOptionsProps={}) => {
     const { skip=0, limit=10000, sort=-1 } = options;
+    const query = Object.keys(params).reduce((obj: any, key) => {
+      if(params[key] !== undefined) {
+        obj[key] = params[key];
+      };
+      return obj;
+    }, {})
+
     const result = await this._readDatabase(query);
     if (result.code !== 200) return result;
     // 没有查询条件时，返回所有数据
@@ -151,7 +163,5 @@ class DB extends FileHander {
     }
   }
 }
-
-
 
 module.exports = DB

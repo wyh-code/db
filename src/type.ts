@@ -1,48 +1,48 @@
-interface ICopyFileProps {
+export interface ICopyFileProps {
   code: 200 | 500;
   data?: ITempProps[];
   error?: any;
 }
 
-interface IReadDatabaseProps {
+export interface IReadDatabaseProps {
   _$id?: number;
   [key: string]: any;
 }
 
-interface IFindResultProps {
+export interface IFindResultProps {
   code: 200 | 500;
   data?: ITempProps[];
   count: number;
   error?: any;
 }
 
-interface IWriteDatabaseResultProps { 
+export interface IWriteDatabaseResultProps { 
   code: 200 | 500;
   error?: any; 
   doc?: ITempProps;
 }
 
-interface IWriteDatabaseOptionsProps {
+export interface IWriteDatabaseOptionsProps {
   copy?: boolean;
 }
 
-interface ITempProps {
+export interface ITempProps {
   _$status: number;
   _$id: number;
   content: any;
 }
 
-interface IFileHanderProps {
+export interface IFileHanderProps {
   base?: string;
   model: string;
   databasePath: string;
 }
 
-interface IDataProps {
+export interface IDataProps {
   [key: string]: any;
 }
 
-interface IFindOptionsProps {
+export interface IFindOptionsProps {
   skip?: number;
   limit?: number; 
   sort?: number;

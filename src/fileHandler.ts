@@ -1,7 +1,13 @@
-/// <reference types="./index.d.ts" />，
-
 const fs = require('fs');
 
+import { 
+  IFileHanderProps,
+  ICopyFileProps,
+  ITempProps,
+  IReadDatabaseProps,
+  IWriteDatabaseOptionsProps,
+  IWriteDatabaseResultProps
+} from './type';
 class Temp {
   _$status: number;
   _$id: number;
@@ -78,6 +84,7 @@ class FileHander {
         } else {
           // 使用 fs.readdir 方法读取文件夹内容
           const files = await fs.readdirSync(this.databasePath);
+          console.log('files: ', files)
           for (let i = 0; i < files.length; i++) {
             const docString = await fs.readFileSync(`${this.databasePath}/${files[i]}`);
             const json = JSON.parse(docString);
@@ -124,5 +131,4 @@ class FileHander {
   }
 }
 
-// module.exports = FileHander
 export default FileHander;

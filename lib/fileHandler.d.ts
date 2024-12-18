@@ -1,3 +1,4 @@
+import { IFileHanderProps, ICopyFileProps, IReadDatabaseProps, IWriteDatabaseOptionsProps, IWriteDatabaseResultProps } from './type';
 declare class FileHander {
     private model;
     private databasePath;
