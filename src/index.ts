@@ -14,7 +14,7 @@ class DB extends FileHander {
     return this._writeDatabase(data);
   }
 
-  find:(query: IDataProps, options?: IFindOptionsProps) => Promise<IFindResultProps> = async (query: IDataProps, options: IFindOptionsProps={}) => {
+  find:(query: IDataProps, options?: IFindOptionsProps) => Promise<ICopyFileProps|IFindResultProps> = async (query: IDataProps, options: IFindOptionsProps={}) => {
     const { skip=0, limit=10000, sort=-1 } = options;
     const result = await this._readDatabase(query);
     if (result.code !== 200) return result;
@@ -56,7 +56,7 @@ class DB extends FileHander {
     return {
       code: 200,
       data: data && { ...data.content, _$id: data._$id },
-      count: result.count
+      count: (result as IFindResultProps).count
     }
   }
 
@@ -67,7 +67,7 @@ class DB extends FileHander {
     return {
       code: 200,
       data: result.data!.map((item: ITempProps) => ({ ...item.content, _$id: item._$id })),
-      count: result.count
+      count: (result as IFindResultProps).count
     }
   }
 
