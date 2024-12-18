@@ -75,7 +75,7 @@ class FileHander {
       try {
         const docs: ITempProps[] = [];
         if (options._$id) {
-          console.log('_readDatabase: ', `${this.databasePath}${options._$id}.json`)
+          // console.log('_readDatabase: ', `${this.databasePath}${options._$id}.json`)
           const file = await fs.readFileSync(`${this.databasePath}${options._$id}.json`);
           const json = JSON.parse(file);
           if (json._$status) {
@@ -84,7 +84,7 @@ class FileHander {
         } else {
           // 使用 fs.readdir 方法读取文件夹内容
           const files = await fs.readdirSync(this.databasePath);
-          console.log('files: ', files)
+          // console.log('files: ', files)
           for (let i = 0; i < files.length; i++) {
             const docString = await fs.readFileSync(`${this.databasePath}/${files[i]}`);
             const json = JSON.parse(docString);
