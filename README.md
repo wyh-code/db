@@ -44,7 +44,7 @@ const db = new DB({ model: 'demo', base: '/root' });
 
 `updateOne` 更新符合条件的第一条数据，`updateAll` 更新符合条件的所有数据。
 
-### 删除
+#### 删除
 `removeOne` 接受两个参数，`query` 为匹配条件。`options` 为可选参数，可设置`skip?: number`、`limit?: number`、`sort?: number;` 三个属性。
 
 `removeOne` 删除符合条件的第一条数据，`removeAll` 删除符合条件的所有数据。
