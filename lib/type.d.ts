@@ -29,7 +29,6 @@ export interface ITempProps {
 export interface IFileHanderProps {
     base?: string;
     model: string;
-    databasePath: string;
 }
 export interface IDataProps {
     [key: string]: any;
