@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+test_data/
+*.log
+.DS_Store
+*.json.copy
+.vitest/
+junit.xml
